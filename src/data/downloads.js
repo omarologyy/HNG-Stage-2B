@@ -1,25 +1,25 @@
 const downloads = [
-    {
-        id: 1,
-        icon: "images/logo-chrome.svg",
-        title: "Add to Chrome",
-        subTitle: "Minimum version 62",
-        link: "#",
-    },
-    {
-        id: 2,
-        icon: "images/logo-firefox.svg",
-        title: "Add to Firefox",
-        subTitle: "Minimum version 55",
-        link: "#",
-    },
-    {
-        id: 3,
-        icon: "images/logo-opera.svg",
-        title: "Add to Opera",
-        subTitle: "Minimum version 46",
-        link: "#",
-    },
+  {
+    id: 1,
+    title: "Streamlined Ticket Tracking",
+    subTitle:
+      "Create, assign, and monitor tickets effortlessly — keep every issue organized and easy to follow.",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Smart Automation & Notifications",
+    subTitle:
+      " Automate ticket routing, get instant updates, and never miss a customer request again.",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Real-Time Collaboration",
+    subTitle:
+      "Work together seamlessly — assign tasks, leave comments, and resolve issues faster as a team.",
+    link: "#",
+  },
 ];
 
 export default downloads;
