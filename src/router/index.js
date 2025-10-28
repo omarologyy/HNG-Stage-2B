@@ -1,3 +1,4 @@
+// router/index.js
 import { createRouter, createWebHistory } from "vue-router";
 
 import LandingPage from "../layouts/LandingPage.vue";
@@ -19,6 +20,7 @@ const routes = [
   {
     path: "/dashboard",
     component: DashboardLayout,
+    meta: { requiresAuth: true }, // ✅ mark route as protected
     children: [
       { path: "", name: "Dashboard", component: Dashboard },
       { path: "total-tickets", name: "TotalTickets", component: Total },
@@ -35,6 +37,19 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+// ✅ Global guard to protect routes
+router.beforeEach((to, from, next) => {
+  const session = localStorage.getItem("ticketapp_session");
+
+  if (to.meta.requiresAuth && !session) {
+    next({ path: "/signup" });
+  } else if ((to.name === "Login" || to.name === "Signup") && session) {
+    next({ path: "/dashboard" });
+  } else {
+    next();
+  }
 });
 
 export default router;

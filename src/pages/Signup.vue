@@ -16,10 +16,16 @@ const handleSignup = () => {
   const isValidPassword = password.value.length >= 6;
 
   if (isValidEmail && isValidPassword) {
+    // ✅ Save user session to localStorage
+    localStorage.setItem(
+      "ticketapp_session",
+      JSON.stringify({ email: email.value })
+    );
+
     alert("Welcome to Tickr!");
-    router.push("/dashboard");
+    router.push("/dashboard"); // ✅ Navigate after storing session
   } else {
-    alert("Please enter a valid email and password (min. 6 characters).");
+    alert("Please enter a valid email and password");
   }
 };
 </script>

@@ -12,13 +12,18 @@ const togglePassword = () => {
 };
 
 const handleLogin = () => {
-  // Basic validation: both fields must be filled and valid
   const isValidEmail = /\S+@\S+\.\S+/.test(email.value);
   const isValidPassword = password.value.length >= 6;
 
   if (isValidEmail && isValidPassword) {
+    // ✅ store session in localStorage
+    localStorage.setItem(
+      "ticketapp_session",
+      JSON.stringify({ email: email.value })
+    );
+
     alert("Welcome back!");
-    router.push("/dashboard");
+    router.push("/dashboard"); // navigate after storing session
   } else {
     alert("Invalid credentials. Redirecting to signup...");
     router.push("/signup");
